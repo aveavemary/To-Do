@@ -6,22 +6,37 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
+import { AddPage } from '../pages/add/add';
+import { TodoDetailPage } from '../pages/todo-detail/todo-detail';
+import { Data } from '../providers/data/data';
+import { HttpClient } from '@angular/common/http';
+import { IonicStorageModule } from '@ionic/storage';
+import { EditPage } from '../pages/edit/edit';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    AddPage,
+    TodoDetailPage,
+    EditPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    AddPage,
+    TodoDetailPage,
+    EditPage
   ],
   providers: [
+    Data,
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
